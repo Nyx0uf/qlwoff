@@ -1,6 +1,9 @@
 #import "font_renderer.h"
 
-/* most of this is taken from freetype.org : http://www.freetype.org/freetype2/docs/tutorial/example2.cpp */
+/* 
+ most of this is taken from freetype.org : http://www.freetype.org/freetype2/docs/tutorial/example2.cpp
+ Replaced structs name to avoid some collisions
+ */
 #include <ft2build.h>
 #include FT_FREETYPE_H
 #include FT_STROKER_H
@@ -138,10 +141,10 @@ CF_RETURNS_RETAINED CGImageRef create_image_for_font_at_url(NSString* path)
 	std::vector<NYXPixel32*> vimg;
 	size_t imgWidth = 0, imgHeight = 0;
 	size_t finalWidth = 0, finalHeight = 0;
-	const float outlineWidth = 1.0f;
 	const size_t x_space = 4, y_space = 10;
-	const NYXPixel32& fontCol = NYXPixel32(0, 0, 0);
-	const NYXPixel32 outlineCol = NYXPixel32(0, 0, 0);
+	const float outlineWidth = 1.0f;
+	const NYXPixel32& fontColor = NYXPixel32(0, 0, 0);
+	const NYXPixel32 outlineColor = NYXPixel32(0, 0, 0);
 	for (size_t ii = 0; ii < NYX_SAMPLESTRING_LEN; ii++)
 	{
 		if (sample_string[ii] == '\n')
@@ -220,7 +223,7 @@ CF_RETURNS_RETAINED CGImageRef create_image_for_font_at_url(NSString* path)
 						// Loop over the outline spans and just draw them into the image.
 						for (Spans::iterator s = outlineSpans.begin(); s != outlineSpans.end(); ++s)
 							for (int w = 0; w < s->width; ++w)
-								pxl[(int)((tmpHeight - 1 - (s->y - rect.ymin)) * tmpWidth + s->x - rect.xmin + w)] = NYXPixel32(outlineCol.r, outlineCol.g, outlineCol.b, (uint8)s->coverage);
+								pxl[(int)((tmpHeight - 1 - (s->y - rect.ymin)) * tmpWidth + s->x - rect.xmin + w)] = NYXPixel32(outlineColor.r, outlineColor.g, outlineColor.b, (uint8)s->coverage);
 
 						// Then loop over the regular glyph spans and blend them into the image.
 						for (Spans::iterator s = spans.begin(); s != spans.end(); ++s)
@@ -228,7 +231,7 @@ CF_RETURNS_RETAINED CGImageRef create_image_for_font_at_url(NSString* path)
 							for (int w = 0; w < s->width; ++w)
 							{
 								NYXPixel32 &dst = pxl[(int)((tmpHeight - 1 - (s->y - rect.ymin)) * tmpWidth + s->x - rect.xmin + w)];
-								NYXPixel32 src = NYXPixel32(fontCol.r, fontCol.g, fontCol.b, (uint8)s->coverage);
+								NYXPixel32 src = NYXPixel32(fontColor.r, fontColor.g, fontColor.b, (uint8)s->coverage);
 								dst.r = (uint8)(dst.r + ((src.r - dst.r) * src.a) / 255.0f);
 								dst.g = (uint8)(dst.g + ((src.g - dst.g) * src.a) / 255.0f);
 								dst.b = (uint8)(dst.b + ((src.b - dst.b) * src.a) / 255.0f);
