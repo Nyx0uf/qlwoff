@@ -11,10 +11,12 @@
 		1E09205119B5CD55007BAC25 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E09205019B5CD55007BAC25 /* ApplicationServices.framework */; };
 		1E09205319B5CD55007BAC25 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E09205219B5CD55007BAC25 /* CoreServices.framework */; };
 		1E09205519B5CD55007BAC25 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E09205419B5CD55007BAC25 /* CoreFoundation.framework */; };
-		1E09205B19B5CD55007BAC25 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E09205919B5CD55007BAC25 /* InfoPlist.strings */; };
-		1E09205D19B5CD55007BAC25 /* GenerateThumbnailForURL.c in Sources */ = {isa = PBXBuildFile; fileRef = 1E09205C19B5CD55007BAC25 /* GenerateThumbnailForURL.c */; };
-		1E09205F19B5CD55007BAC25 /* GeneratePreviewForURL.c in Sources */ = {isa = PBXBuildFile; fileRef = 1E09205E19B5CD55007BAC25 /* GeneratePreviewForURL.c */; };
-		1E09206119B5CD55007BAC25 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 1E09206019B5CD55007BAC25 /* main.c */; };
+		1E1EFC2E19B606FE00D639C3 /* GeneratePreviewForURL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E1EFC2819B606FE00D639C3 /* GeneratePreviewForURL.mm */; };
+		1E1EFC2F19B606FE00D639C3 /* GenerateThumbnailForURL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E1EFC2919B606FE00D639C3 /* GenerateThumbnailForURL.mm */; };
+		1E1EFC3019B606FE00D639C3 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E1EFC2A19B606FE00D639C3 /* main.mm */; };
+		1E1EFC3119B606FE00D639C3 /* Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 1E1EFC2B19B606FE00D639C3 /* Prefix.pch */; };
+		1E1EFC3219B606FE00D639C3 /* font_renderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E1EFC2C19B606FE00D639C3 /* font_renderer.h */; };
+		1E1EFC3319B606FE00D639C3 /* font_renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E1EFC2D19B606FE00D639C3 /* font_renderer.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,12 +25,13 @@
 		1E09205019B5CD55007BAC25 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		1E09205219B5CD55007BAC25 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		1E09205419B5CD55007BAC25 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		1E09205819B5CD55007BAC25 /* qlwoff-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "qlwoff-Info.plist"; sourceTree = "<group>"; };
-		1E09205A19B5CD55007BAC25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1E09205C19B5CD55007BAC25 /* GenerateThumbnailForURL.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = GenerateThumbnailForURL.c; sourceTree = "<group>"; };
-		1E09205E19B5CD55007BAC25 /* GeneratePreviewForURL.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = GeneratePreviewForURL.c; sourceTree = "<group>"; };
-		1E09206019B5CD55007BAC25 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		1E09206219B5CD55007BAC25 /* qlwoff-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "qlwoff-Prefix.pch"; sourceTree = "<group>"; };
+		1E1EFC2619B606FE00D639C3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E1EFC2819B606FE00D639C3 /* GeneratePreviewForURL.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GeneratePreviewForURL.mm; sourceTree = "<group>"; };
+		1E1EFC2919B606FE00D639C3 /* GenerateThumbnailForURL.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GenerateThumbnailForURL.mm; sourceTree = "<group>"; };
+		1E1EFC2A19B606FE00D639C3 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		1E1EFC2B19B606FE00D639C3 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		1E1EFC2C19B606FE00D639C3 /* font_renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = font_renderer.h; sourceTree = "<group>"; };
+		1E1EFC2D19B606FE00D639C3 /* font_renderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = font_renderer.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +52,8 @@
 		1E09204019B5CD55007BAC25 = {
 			isa = PBXGroup;
 			children = (
-				1E09205619B5CD55007BAC25 /* qlwoff */,
+				1E1EFC2719B606FE00D639C3 /* sources */,
+				1E1EFC2519B606FE00D639C3 /* resources */,
 				1E09204D19B5CD55007BAC25 /* Frameworks */,
 				1E09204C19B5CD55007BAC25 /* Products */,
 			);
@@ -74,25 +78,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1E09205619B5CD55007BAC25 /* qlwoff */ = {
+		1E1EFC2519B606FE00D639C3 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				1E09205C19B5CD55007BAC25 /* GenerateThumbnailForURL.c */,
-				1E09205E19B5CD55007BAC25 /* GeneratePreviewForURL.c */,
-				1E09206019B5CD55007BAC25 /* main.c */,
-				1E09205719B5CD55007BAC25 /* Supporting Files */,
+				1E1EFC2619B606FE00D639C3 /* Info.plist */,
 			);
-			path = qlwoff;
+			path = resources;
 			sourceTree = "<group>";
 		};
-		1E09205719B5CD55007BAC25 /* Supporting Files */ = {
+		1E1EFC2719B606FE00D639C3 /* sources */ = {
 			isa = PBXGroup;
 			children = (
-				1E09205819B5CD55007BAC25 /* qlwoff-Info.plist */,
-				1E09205919B5CD55007BAC25 /* InfoPlist.strings */,
-				1E09206219B5CD55007BAC25 /* qlwoff-Prefix.pch */,
+				1E1EFC2A19B606FE00D639C3 /* main.mm */,
+				1E1EFC2B19B606FE00D639C3 /* Prefix.pch */,
+				1E1EFC2819B606FE00D639C3 /* GeneratePreviewForURL.mm */,
+				1E1EFC2919B606FE00D639C3 /* GenerateThumbnailForURL.mm */,
+				1E1EFC2C19B606FE00D639C3 /* font_renderer.h */,
+				1E1EFC2D19B606FE00D639C3 /* font_renderer.mm */,
 			);
-			name = "Supporting Files";
+			path = sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,6 +106,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E1EFC3119B606FE00D639C3 /* Prefix.pch in Headers */,
+				1E1EFC3219B606FE00D639C3 /* font_renderer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,8 +121,6 @@
 				1E09204519B5CD55007BAC25 /* Sources */,
 				1E09204619B5CD55007BAC25 /* Frameworks */,
 				1E09204719B5CD55007BAC25 /* Headers */,
-				1E09204819B5CD55007BAC25 /* Resources */,
-				1E09204919B5CD55007BAC25 /* Rez */,
 			);
 			buildRules = (
 			);
@@ -153,50 +157,19 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		1E09204819B5CD55007BAC25 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1E09205B19B5CD55007BAC25 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXRezBuildPhase section */
-		1E09204919B5CD55007BAC25 /* Rez */ = {
-			isa = PBXRezBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXRezBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		1E09204519B5CD55007BAC25 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E09205D19B5CD55007BAC25 /* GenerateThumbnailForURL.c in Sources */,
-				1E09205F19B5CD55007BAC25 /* GeneratePreviewForURL.c in Sources */,
-				1E09206119B5CD55007BAC25 /* main.c in Sources */,
+				1E1EFC3019B606FE00D639C3 /* main.mm in Sources */,
+				1E1EFC2E19B606FE00D639C3 /* GeneratePreviewForURL.mm in Sources */,
+				1E1EFC3319B606FE00D639C3 /* font_renderer.mm in Sources */,
+				1E1EFC2F19B606FE00D639C3 /* GenerateThumbnailForURL.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		1E09205919B5CD55007BAC25 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1E09205A19B5CD55007BAC25 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1E09206319B5CD55007BAC25 /* Debug */ = {
@@ -272,12 +245,47 @@
 		1E09206619B5CD55007BAC25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
+				CLANG_WARN_OBJC_RECEIVER_WEAK = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "qlwoff/qlwoff-Prefix.pch";
-				INFOPLIST_FILE = "qlwoff/qlwoff-Info.plist";
+				GCC_PREFIX_HEADER = sources/Prefix.pch;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/Cellar/freetype/2.5.3_1/include/freetype2,
+				);
+				INFOPLIST_FILE = resources/Info.plist;
 				INSTALL_PATH = /Library/QuickLook;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib/;
+				OTHER_LDFLAGS = "-lfreetype";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				WRAPPER_EXTENSION = qlgenerator;
 			};
 			name = Debug;
@@ -285,12 +293,48 @@
 		1E09206719B5CD55007BAC25 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
+				CLANG_WARN_OBJC_RECEIVER_WEAK = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "qlwoff/qlwoff-Prefix.pch";
-				INFOPLIST_FILE = "qlwoff/qlwoff-Info.plist";
+				GCC_PREFIX_HEADER = sources/Prefix.pch;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/Cellar/freetype/2.5.3_1/include/freetype2,
+				);
+				INFOPLIST_FILE = resources/Info.plist;
 				INSTALL_PATH = /Library/QuickLook;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib/;
+				OTHER_LDFLAGS = "-lfreetype";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				WRAPPER_EXTENSION = qlgenerator;
 			};
 			name = Release;
@@ -314,6 +358,7 @@
 				1E09206719B5CD55007BAC25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

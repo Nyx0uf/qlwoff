@@ -36,6 +36,7 @@
 //	typedefs
 // -----------------------------------------------------------------------------
 
+NYX_EXTERN_C_BEGIN
 // The thumbnail generation function to be implemented in GenerateThumbnailForURL.c
 OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thumbnail, CFURLRef url, CFStringRef contentTypeUTI, CFDictionaryRef options, CGSize maxSize);
 void CancelThumbnailGeneration(void* thisInterface, QLThumbnailRequestRef thumbnail);
@@ -101,7 +102,8 @@ QuickLookGeneratorPluginType *AllocQuickLookGeneratorPluginType(CFUUIDRef inFact
     memcpy(theNewInstance->conduitInterface,&myInterfaceFtbl,sizeof(QLGeneratorInterfaceStruct));
 
         /*  Retain and keep an open instance refcount for each factory. */
-    theNewInstance->factoryID = CFRetain(inFactoryID);
+	CFRetain(inFactoryID);
+    theNewInstance->factoryID = inFactoryID;
     CFPlugInAddInstanceForFactory(inFactoryID);
 
         /* This function returns the IUnknown interface so set the refCount to one. */
@@ -198,7 +200,7 @@ ULONG QuickLookGeneratorPluginRelease(void *thisInstance)
 // -----------------------------------------------------------------------------
 //  QuickLookGeneratorPluginFactory
 // -----------------------------------------------------------------------------
-void *QuickLookGeneratorPluginFactory(CFAllocatorRef allocator,CFUUIDRef typeID)
+void *QuickLookGeneratorPluginFactory(__unused CFAllocatorRef allocator,CFUUIDRef typeID)
 {
     QuickLookGeneratorPluginType *result;
     CFUUIDRef                 uuid;
@@ -215,4 +217,6 @@ void *QuickLookGeneratorPluginFactory(CFAllocatorRef allocator,CFUUIDRef typeID)
         /* If the requested type is incorrect, return NULL. */
     return NULL;
 }
+
+NYX_EXTERN_C_END
 

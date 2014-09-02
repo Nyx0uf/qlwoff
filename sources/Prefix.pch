@@ -1,0 +1,18 @@
+/* Taken from TextMate */
+#ifndef NYX_EXTERN_C_BEGIN
+#ifdef __cplusplus
+#define NYX_EXTERN_C_BEGIN extern "C" {
+#else
+#define NYX_EXTERN_C_BEGIN
+#endif
+#endif
+
+#ifndef NYX_EXTERN_C_END
+#ifdef __cplusplus
+#define NYX_EXTERN_C_END }
+#else
+#define NYX_EXTERN_C_END
+#endif
+#endif
+
+#import <Foundation/Foundation.h>
