@@ -139,25 +139,25 @@ CF_RETURNS_RETAINED CGImageRef create_image_for_font_at_url(NSString* path)
 
 	std::vector<NYXRect> vrect;
 	std::vector<NYXPixel32*> vimg;
-	size_t imgWidth = 0, imgHeight = 0;
-	size_t finalWidth = 0, finalHeight = 0;
-	const size_t x_space = 4, y_space = 10;
+	float imgWidth = 0.0f, imgHeight = 0.0f;
+	float finalWidth = 0.0f, finalHeight = 0.0f;
+	const float x_space = 4.0f, y_space = 10.0f;
 	const float outlineWidth = 1.0f;
 	const NYXPixel32& fontColor = NYXPixel32(0, 0, 0);
 	const NYXPixel32 outlineColor = NYXPixel32(0, 0, 0);
-	for (size_t ii = 0; ii < NYX_SAMPLESTRING_LEN; ii++)
+	for (size_t i = 0; i < NYX_SAMPLESTRING_LEN; i++)
 	{
-		if (sample_string[ii] == '\n')
+		if (sample_string[i] == '\n')
 		{
 			if (imgWidth > finalWidth)
 				finalWidth = imgWidth;
-			imgWidth = 0;
+			imgWidth = 0.0;
 			finalHeight += imgHeight;
 			continue;
 		}
 
 		// Load the glyph we are looking for.
-		FT_UInt gindex = FT_Get_Char_Index(face, (FT_ULong)sample_string[ii]);
+		FT_UInt gindex = FT_Get_Char_Index(face, (FT_ULong)sample_string[i]);
 		if (FT_Load_Glyph(face, gindex, FT_LOAD_NO_BITMAP) == 0)
 		{
 			// Need an outline for this to work.
@@ -209,12 +209,12 @@ CF_RETURNS_RETAINED CGImageRef create_image_for_font_at_url(NSString* path)
 						vrect.push_back(rect);
 
 						// Get some metrics of our image.
-						size_t tmpWidth = (size_t)rect.Width();
-						size_t tmpHeight = (size_t)rect.Height();
+						const float tmpWidth = ceilf(rect.Width());
+						const float tmpHeight = ceilf(rect.Height());
 						imgWidth += tmpWidth;
 						if (tmpHeight > imgHeight)
 							imgHeight = tmpHeight;
-						size_t imgSize = (size_t)tmpWidth * (size_t)tmpHeight;
+						const size_t imgSize = (size_t)(tmpWidth * tmpHeight);
 
 						// Allocate data for our image and clear it out to transparent.
 						NYXPixel32* pxl = new NYXPixel32[imgSize];
@@ -246,33 +246,35 @@ CF_RETURNS_RETAINED CGImageRef create_image_for_font_at_url(NSString* path)
 	}
 	finalHeight += (imgHeight + (4 * y_space));
 	finalWidth += (12 * x_space);
+	finalWidth = ceilf(finalWidth);
+	finalHeight = ceilf(finalHeight);
 
 	CGColorSpaceRef cs = CGColorSpaceCreateDeviceRGB();
 	CGContextRef bmContext = CGBitmapContextCreate(NULL, (size_t)finalWidth, (size_t)finalHeight, 8, 4 * (size_t)finalWidth, cs, kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedLast);
-	CGFloat x = 0.0, y = finalHeight;
-	size_t taller = 0;
-	for (size_t ii = 0, t = 1; ii < vimg.size(); ii++, t++)
+	float x = 0.0, y = finalHeight;
+	CGFloat taller = 0;
+	for (size_t i = 0, line_len = 1; i < vimg.size(); i++, line_len++)
 	{
-		NYXPixel32* pxl = vimg[ii];
-		NYXRect rect = vrect[ii];
-		const size_t width = (size_t)rect.Width();
-		const size_t height = (size_t)rect.Height();
+		NYXPixel32* pxl = vimg[i];
+		NYXRect rect = vrect[i];
+		const float width = ceilf(rect.Width());
+		const float height = ceilf(rect.Height());
 
 		CFDataRef data = CFDataCreate(kCFAllocatorDefault, (UInt8*)pxl, (CFIndex)width * (CFIndex)height * (CFIndex)sizeof(NYXPixel32));
 		CGDataProviderRef dp = CGDataProviderCreateWithCFData(data);
-		CGImageRef imgRef = CGImageCreate(width, height, 8, 32, 4 * width, cs, kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedLast, dp, NULL, true, kCGRenderingIntentDefault);
+		CGImageRef imgRef = CGImageCreate((size_t)width, (size_t)height, 8, 32, 4 * (size_t)width, cs, kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedLast, dp, NULL, true, kCGRenderingIntentDefault);
 
 		const CGFloat goodY = y - height;
-		const CGRect area = (CGRect){.origin.x = x, .origin.y = goodY, .size.width = (CGFloat)width, .size.height = (CGFloat)height};
+		const CGRect area = (CGRect){.origin.x = x, .origin.y = goodY, .size.width = width, .size.height = height};
 		CGContextDrawImage(bmContext, area, imgRef);
 
 		x+= width + x_space;
-		if (NYX_MAX_LINE_LEN == t)
+		if (NYX_MAX_LINE_LEN == line_len)
 		{
 			y -= (taller + y_space);
 			x = 0.0;
 			taller = 0.0;
-			t = 0;
+			line_len = 0;
 		}
 		if (height > taller)
 			taller = height;
