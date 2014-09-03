@@ -7,6 +7,8 @@ It depends on [freetype](http://freetype.org "freetype"), to install it the easi
 	brew install freetype
 
 
+![qlwoff](http://static.whine.fr/images/2014/qlwoff1.jpg)
+
 ### License
 
 ***qlwoff*** is released under the *Simplified BSD license*, see **LICENSE**.
